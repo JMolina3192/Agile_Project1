@@ -2,10 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                Python3 test.py
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/JMolina3192/Agile_Project1.git']]])
             }
         }
+	stage('Build'){
+	    steps {
+	        git 'https://github.com/JMolina3192/Agile_Project1.git'
+		sh 'python3 test.py'
+		echo 'Job building...'
+	    }
+	}
     }
 }
