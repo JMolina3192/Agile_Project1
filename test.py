@@ -5,5 +5,5 @@ print("asdasdas")
 print("yes")
 print("hello")
 print("testing")
-print("testing1")=9
+print("testing1")
 
